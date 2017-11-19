@@ -24,8 +24,12 @@ As the game is lost by the player that cannot move anymore, then the overall str
 In this context, for each functions we return the score of the player minus three times the score of it's opponent.   
 The three heuristics are:  
 
-* Center first (custom_score): 
-* Plan ahead (custom_score-2):
+* Center first (custom_score):   
+For this approach we introduce a new function, weighted_move, that return a weight equal to square of the distance from the center of the
+board to a given position.    
+The function add up all the weighted potentials moves of the player and compare it the sum of the weighted moves of it's opponent. 
+* Plan ahead (custom_score_2):   
+
 * A mix of both previous function (custom_score_3):
 
 ## 3. Results  
