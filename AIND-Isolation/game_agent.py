@@ -350,18 +350,11 @@ class AlphaBetaPlayer(IsolationPlayer):
         """
         self.time_left = time_left
 
-        # Initialize best_move with a random move
+        # Initialize best_move with the center-most move
         # in case the search timeouts before setting a best_move
         legal_moves = game.get_legal_moves()
-
-        # If center is free this we take it directly
-        center = (game.width // 2, game.height // 2)
-        if center in legal_moves:
-            return center
-
         if legal_moves:
             _, best_move = max([(weighted_move(game, m), m) for m in legal_moves])
-            #best_move = legal_moves[random.randint(0, len(legal_moves) - 1)]
         else:
             best_move = (-1,-1)
 
@@ -422,7 +415,7 @@ class AlphaBetaPlayer(IsolationPlayer):
                 testing.
 
         """
-        
+
         if self.time_left() < self.TIMER_THRESHOLD:
             raise SearchTimeout()
 
@@ -465,24 +458,18 @@ class AlphaBetaPlayer(IsolationPlayer):
             return best_score
 
         best_move = (-1, -1)
-
         legal_moves = game.get_legal_moves()
-
         if legal_moves:
             _, best_move = max([(weighted_move(game, m), m) for m in legal_moves])
-
         best_score = float('-inf')
-
         for move in legal_moves:
             game_subbranch = game.forecast_move(move)
             score = min_value(game_subbranch, depth - 1, alpha, beta)
-            if score >= best_score:
+            if score > best_score:
                 best_score = score
                 best_move = move
-
-            if score >= beta:
+            if best_score >= beta:
                 return best_move
-
-            alpha = max(alpha, score)
+            alpha = max(alpha, best_score)
 
         return best_move

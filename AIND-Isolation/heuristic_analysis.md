@@ -42,21 +42,26 @@ With the last function we try to determine if the combination of the two previou
 
 |               |   AB_Improved  |   AB_Custom   |   AB_Custom_2 |   AB_Custom_3  |
 | ------------- | :------------: | :-----------: | :-----------: | :-----------:  |
-| **Opponent**  | **Won / Lost** | **Won / Lost**| **Won / Lost**| **Won / Lost** |
-| Random        | **`8`** / `2`  | **`10`** / `0`| **`10`** / `0`| **`7`** / `3`  |
-| MM_Open       | `5`   /   `5`  | **`6`** / `4` | **`6`** / `4` | **`8`** / `2`  |
-| MM_Center     | **`7`** / `3`  | **`8`** / `2` | **`7`** / `3` | **`8`** / `2`  |
-| MM_Improved   | **`7`** / `3`  | **`6`** / `4` | **`8`** / `2` | **`8`** / `2`  |
-| AB_Open       | `5`    /  `5`  | **`7`** / `3` | `5`  /   `5`  | `4`  / **`6`** |
-| AB_Center     | `3`  / **`7`** | **`6`** / `4` | **`6`** / `4` | **`6`** / `4`  |
-| AB_Improved   | **`6`** / `4`  | `5`  /   `5`  | `5`  /   `5`  | **`7`** / `3`  |
-| **Win Rate:** |<font color="Blue">58.6%</font>|<font color="Blue">68.6%</font>|<font color="Blue">67.1%</font>|<font color="Blue">68.6%</font>|
+| **Opponent**  | **Won / 10**   | **Won / 10**  | **Won / 10**  | **Won / 10**   |
+| Random        | `8`  | `10` | `9`  | `10` |
+| MM_Open       | `7`  | 5    | `7`  | `7`  |
+| MM_Center     | `8`  | `8`  | `10` | `8`  |
+| MM_Improved   | `6`  | `8`  | `8`  | `8`  |
+| AB_Open       | 5    | 5    | `6`  | 5    |
+| AB_Center     | 5    | 5    | `6`  | 5    |
+| AB_Improved   | `6`  | 4    | 5    | 5  |
+| **Win Rate:** |<font color="Blue">64.3%</font>|<font color="Blue">65.7%</font>|<font color="Blue">70.0%</font>|<font color="Blue">70.0%</font>|
 
 
 As we can see, both functions, __Center First__ and __Plan Ahead__, give us relevant results.
 However, the combination of the two approaches does not increase the chances of winning the game.   
 This is probably due to the fact that these two approaches favor the same type of movements. And as each time we subtract the score obtained to three times that of the opponent, the final result remains substantially the same.  
 
+
+> _It should be noted that these results are to be taken with caution.   
+Indeed, the number of matches (10) by assignment is far from sufficient to obtain reliable statistics._
+
+
 ## 4. Evolutions:  
-If one had to dig deeper into the subject, it would be relevant to compare the execution time of __Plan Ahead__ and __Center First__ and to keep only the fastest.  
+Ifhad to dig deeper into the subject, it would be relevant to compare the execution time of __Plan Ahead__ and __Center First__ and to keep only the fastest.  
 Other approaches should also be studied, such as a rule-based inference algorithme or a Deep Neural Network and reinforcement learning.
