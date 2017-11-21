@@ -7,7 +7,8 @@
 ******************
 _Bertrand Louargant_  
 _Udacity AI Nanodegree_   
-https://deepmind.com/blog/alphago-zero-learning-scratch/
+https://deepmind.com/blog/alphago-zero-learning-scratch/   
+
 ******************
 
 ## 1. Forewords
@@ -18,22 +19,25 @@ That's why this research will concentrate on Alpha Go zero and try to explain wh
 AlphaGo Zero is the latest development of Google DeepMind's Go AI player.   
 While AlphaGo, it's predecessor, was able to beat the world's best Go player - something thought to be impossible just a few years ago - this new version is way ahead of it's venerable ancestor not only because it was able to beat it to a final score of **100** to **0** but also by the ressources it needed to do so.
 
-## 3. Final Score: 100 To 0
+## 3. Final Score: 100 to 0
 Let's go back a little to the time when Alpha Go beated the - now - famous Lee Sedol, world champion of Go. At that time, AlphaGo showed moves that nobody has seen before which is pretty impressive given the fact that the game of Go is nearly four thousand years old.   
 Moreover, the game of Go offer such a large search space that it is completely possible that a less capable AI is lucky enough to win over a better AI.  
 So, is it possible that AlphaGo Zero was able invent new bizare moves ?   
 That's seems to be the case, a fact somehow backed by the scarcity of ressources needed compared to it predecessor.
 
 ## 4. Always Less, Less of Everything.
-The second thing that strikes about AlphaGo Zero is that it needs so much less ressources, it needs less of just everything.  
-* __Less computation power__   
+The second thing that strikes about AlphaGo Zero is that it needs so much less ressources, it needs less of just everything.   
+
+- __Less computation power__   
 With only 4 Google TPUs needed, this is less than 1/10th of the 48 TPUs needed by the previous version. This alone is a serious hint that something big is happening here.    
 Note that with 4 Nvidia Volta GPUs, like the DGX-1 Workstation, one has enough computation power to replicate the experiment. If this is not cheap it's an order of magnitude cheaper than a super computer and also way more accessible.   
 &nbsp;
-* __Less training time__    
+
+- __Less training time__    
 After only three days of training it was able to defeat AlphaGo "Lee", the version that won against Lee Sedol in March 2016. After 21 days, it reaches the AlphaGo "Master" level, a version of AlhpaGo that defeated the world's best players and world number one Ke Jie. After 40 days, it outperformed any other version of AlphaGo.   
 &nbsp;
-* __Less training data__    
+
+- __Less training data__    
 Usually, the way to improve a neural network is either a bigger database or to generate more synthetic data by doing all sorts of data manipulations.   
 However for AlhpaGo Zero, DeepMind used what they calls "Self-play reinforcement learning".    
 More on this in the next section.
