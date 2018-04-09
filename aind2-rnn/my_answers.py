@@ -1,8 +1,9 @@
 import numpy as np
 
-from keras.models import Sequential
-from keras.layers import Dense
+from keras.models import Sequential, Model
+from keras.layers import Dense, Input
 from keras.layers import LSTM
+from keras import backend as K
 import keras
 
 
@@ -10,8 +11,8 @@ import keras
 # and window-size into a set of input/output pairs for use with our RNN model
 def window_transform_series(series, window_size):
     # containers for input/output pairs
-    X = []
-    y = []
+    X = [[series[i+j] for j in range(0, window_size)] for i in range(len(series)-window_size)]
+    y = [[series[i]] for i in range(window_size, len(series))]
 
     # reshape each 
     X = np.asarray(X)
@@ -21,9 +22,15 @@ def window_transform_series(series, window_size):
 
     return X,y
 
+
 # TODO: build an RNN to perform regression on our time series input/output data
-def build_part1_RNN(window_size):
-    pass
+def build_part1_RNN(window_size, lstm_size=5):
+    # Clear session before creating a new model
+    K.clear_session()
+    inputs = Input(shape=(window_size, 1))
+    _lstm = LSTM(lstm_size)(inputs)
+    outputs = Dense(1)(_lstm)
+    return Model(inputs, outputs)
 
 
 ### TODO: return the text input with only ascii lowercase and the punctuation given below included.
